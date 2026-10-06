@@ -45,3 +45,63 @@ Train Model: Huấn luyện mô hình và tự động ghi nhận (log) các ch�
 Evaluate: Kiểm tra xem mô hình có đạt ngưỡng chất lượng (accuracy/RMSE) yêu cầu hay không.
 
 Deploy: Đóng gói và đẩy mô hình lên môi trường phục vụ dự đoán (Model Deployment Endpoint) nếu vượt qua bài kiểm tra.
+
+# --- lib
+1. logging
+Thư viện logging là một module có sẵn trong thư viện chuẩn (built-in library) của Python, dùng để ghi lại các sự kiện, thông báo lỗi, cảnh báo hoặc thông tin trạng thái khi chương trình chạy.
+
+So với việc dùng hàm print(), sử dụng logging mang lại nhiều ưu điểm vượt trội:
+
+Phân loại mức độ quan trọng: Dễ dàng lọc xem thông điệp nào là thông tin thông thường, thông điệp nào là lỗi nghiêm trọng.
+
+Định hướng đầu ra linh hoạt: Có thể in ra màn hình (console), ghi vào file, gửi qua email hoặc chuyển đến các hệ thống giám sát từ xa.
+
+Cung cấp metadata tự động: Tự động gắn kèm thời gian (timestamp), tên module, số dòng code gây ra sự kiện.
+
+2. from abc import ABC, abstractmethod
+Dòng lệnh from abc import ABC, abstractmethod dùng để nhập (import) các công cụ xây dựng Abstract Base Class (Lớp cơ sở trừu tượng) trong Python.
+
+Modul abc (Abstract Base Classes) giúp bạn định nghĩa ra các "khuôn mẫu" hoặc "giao diện" (interface) chung cho một nhóm các lớp con, từ đó ép buộc các lớp con phải tuân theo cấu trúc nhất định.
+
+ABC (Abstract Base Class): Là một lớp cơ sở đặc biệt. Khi một lớp kế thừa từ ABC, nó trở thành một lớp trừu tượng. Bạn không thể khởi tạo trực tiếp đối tượng từ lớp trừu tượng này (ví dụ: gọi obj = TenLopTruuTuong() sẽ báo lỗi). Nó chỉ dùng làm lớp cha để các lớp khác kế thừa.
+
+@abstractmethod (Decorator): Dùng để đánh dấu một phương thức là phương thức trừu tượng. Phương thức này không có phần thân (thường chỉ để pass hoặc ...). Bất kỳ lớp con nào kế thừa từ lớp cha bắt buộc phải viết lại (override) phương thức này, nếu không Python sẽ báo lỗi ngay khi bạn cố gắng khởi tạo đối tượng của lớp con.
+
+3. from typing import Union
+Dòng lệnh from typing import Union dùng để nhập công cụ khai báo kiểu dữ liệu kết hợp (Union types) trong cơ chế gợi ý kiểu dữ liệu (Type Hinting) của Python.
+
+Nó cho phép bạn chỉ định rằng một biến, tham số hàm hoặc giá trị trả về có thể nhận một trong nhiều kiểu dữ liệu khác nhau.
+
+Khi bạn viết Union[int, str], điều đó có nghĩa là giá trị được phép là hoặc là số nguyên (int) hoặc là chuỗi (str).
+
+Lưu ý trong các phiên bản Python hiện đại (từ Python 3.10 trở lên):
+Bạn có thể thay thế Union[int, str] bằng cú pháp gọn hơn là int | str sử dụng toán tử gạch đứng (|). Tuy nhiên, Union vẫn được dùng rất phổ biến trong các codebase cũ hoặc khi cần tương thích ngược.
+
+4. from typing_extensions import Annotated
+Dòng lệnh from typing_extensions import Annotated dùng để nhập công cụ gắn siêu dữ liệu (metadata) vào các gợi ý kiểu dữ liệu (Type Hints) trong Python.
+
+Annotated[Kieu_du_lieu, Metadata_1, Metadata_2, ...]
+
+Annotated được sử dụng rộng rãi để gắn các quy tắc validate vào tham số:
+
+5. from typing import Tuple
+
+Dòng lệnh from typing import Tuple dùng để nhập công cụ khai báo kiểu dữ liệu Tuple (bộ dữ liệu cố định) trong cơ chế gợi ý kiểu dữ liệu (Type Hinting) của Python.
+
+Tuple thuần nhất không giới hạn độ dài (Tuple[int, ...]):
+Nếu bạn thêm dấu ba chấm ..., nó có nghĩa là tuple này có thể chứa số lượng phần tử tùy ý, nhưng tất cả các phần tử đó đều phải cùng một kiểu dữ liệu (trong ví dụ này là int).
+
+# Hàm trả về tọa độ và tên (độ dài cố định 3 phần tử với các kiểu cụ thể)
+def get_location() -> Tuple[int, int, str]:
+    return (10, 20, "Hà Nội")
+
+# Hàm tính tổng danh sách số truyền vào dưới dạng tuple tùy ý
+def calculate_total(numbers: Tuple[int, ...]) -> int:
+    return sum(numbers)
+
+
+# --- lib ML
+1. from sklearn.base import RegressorMixin
+chuyên được sử dụng khi bạn muốn tự xây dựng một mô hình máy học hồi quy (custom regressor) tích hợp mượt mà vào hệ sinh thái của scikit-learn.
+
+Trong scikit-learn, các "mixin" là những lớp phụ (mix-in classes) không đứng độc lập mà dùng để bổ sung các tính năng định sẵn cho lớp chính thông qua đa kế thừa (multiple inheritance).Khi bạn tạo một mô hình hồi quy tùy chỉnh và cho nó kế thừa từ RegressorMixin, bạn nhận được các lợi ích sau:Tự động có phương thức .score(): Lớp này cung cấp sẵn hàm .score(X, y) để tính toán hệ số xác định $R^2$ (coefficient of determination) cho mô hình của bạn mà bạn không cần phải tự viết lại code tính toán.Tương thích với hệ sinh thái scikit-learn: Giúp các công cụ như GridSearchCV, RandomizedSearchCV, Pipeline, hoặc các hàm kiểm tra loại mô hình (như is_regressor()) nhận diện chính xác đối tượng của bạn là một mô hình hồi quy.

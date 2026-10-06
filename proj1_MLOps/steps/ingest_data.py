@@ -1,7 +1,5 @@
 import logging
-
 import pandas as pd
-
 from zenml import step
 
 class IngestData:
@@ -22,9 +20,16 @@ class IngestData:
             pd.DataFrame: The ingested data
         """
         logging.info(f"Ingesting data from {self.data_path}")
-        return pd.read_csv(self.data_path)
+        df = pd.read_csv(self.data_path)
 
-@step
+        # Debug information
+        logging.info(f"DEBUG - Columns: {df.columns.tolist()}")
+        logging.info(f"DEBUG - DataFrame shape: {df.shape}")
+
+        return df
+
+@step #Decorator của ZenML: Biến hàm bên dưới thành một "Step" để ZenML có thể quản lý, theo dõi dữ liệu đầu vào/đầu ra
+#Kiểu dữ liệu trả về: Ký hiệu -> cho biết hàm này sau khi chạy xong sẽ trả về kết quả thuộc kiểu dữ liệu pd.DataFrame (bảng dữ liệu của thư viện Pandas).
 def ingest_df(data_path: str) -> pd.DataFrame:
     """
     Ingest data from the data path
@@ -34,7 +39,9 @@ def ingest_df(data_path: str) -> pd.DataFrame:
         pd.DataFrame: The ingested data
     """
     try:
+        #Khởi tạo đối tượng IngestData từ class thuần Python ở trên, truyền vào đường dẫn file
         ingest_data = IngestData(data_path)
+        #Gọi phương thức get_data() để đọc dữ liệu
         df = ingest_data.get_data()
         return df
     except Exception as e:

@@ -9,6 +9,7 @@ https://www.youtube.com/watch?v=qm56XcRBXWc&list=PLqM7alHXFySGTcwBQV-hYDkYAPJ4EP
 2. mlops 
 https://www.youtube.com/watch?v=o6vbe5G7xNo
 https://www.youtube.com/watch?v=-dJPoLm_gtE
+https://www.youtube.com/watch?v=KF3MPzsnMdU&list=PLkz_y24mlSJZvJOj1UXiJPVRQrNFdNEXX
 
 
 3. fastapi + meachine
