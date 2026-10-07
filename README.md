@@ -9,34 +9,6 @@ Tài liệu này giải thích chi tiết **luồng hoạt động (Workflow)** 
 
 ---
 
-## 1. 🏗️ Kiến Trúc Tổng Thể (System Architecture)
-
-```mermaid
-graph TD
-    subgraph 1. ML Training Phase
-        A[California Housing Dataset] -->|train.py| B[RandomForestRegressor Engine]
-        B -->|joblib.dump| C[house_model.joblib]
-        B -->|joblib.dump| D[house_features.joblib]
-    end
-
-    subgraph 2. Backend API Service (FastAPI)
-        C & D -->|joblib.load| E[FastAPI Application main.py]
-        E --> F[GET /health]
-        E --> G[POST /predict - JSON Payload]
-        E --> H[POST /predict-file - CSV Upload]
-    end
-
-    subgraph 3. Frontend Web Application (Next.js 15)
-        I[Single Valuation Form + Map Pinpicker] -->|JSON Request| G
-        J[Batch CSV Dropzone + Table Preview] -->|Multipart FormData| H
-        K[Live System Health Monitor] -->|Polling| F
-    end
-
-    G -->|JSON Response| I
-    H -->|Streaming CSV File| J
-    F -->|Status JSON| K
-```
-
 ---
 
 ## 2. 🔄 Chi Tiết Luồng Hoạt Động (Detailed Workflow Steps)
