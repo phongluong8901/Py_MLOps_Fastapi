@@ -1,4 +1,4 @@
-1. House predict (fastapi, nextjs)
+<img width="1000" height="869" alt="image" src="https://github.com/user-attachments/assets/135471ef-b4a8-49da-bc4e-c3fdd4e8c4ed" />1. House predict (fastapi, nextjs)
 
 <img width="961" height="926" alt="image" src="https://github.com/user-attachments/assets/d1da771c-35c5-4ca0-9c6c-e804383a2345" />
 <img width="1001" height="914" alt="image" src="https://github.com/user-attachments/assets/359ac4ac-c78b-4431-aeef-f8d5294d5db9" />
@@ -146,3 +146,9 @@ npm run dev
 | **`frontend/`** | Dự án Next.js 15 chứa giao diện web (React components, Glassmorphic CSS, Map) |
 | **`read.md`** | Hướng dẫn lệnh chạy nhanh trên terminal |
 | **`WORKFLOW.md`** | Tài liệu chi tiết sơ đồ & luồng hoạt động hệ thống |
+
+
+2. insurance preditetor (fastapi)
+
+<img width="1000" height="869" alt="image" src="https://github.com/user-attachments/assets/6b133831-1b84-4262-97c5-abb83b46f241" />
+
