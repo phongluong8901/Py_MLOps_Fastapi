@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=qm56XcRBXWc&list=PLqM7alHXFySGTcwBQV-hYDkYAPJ4EP
 2. mlops 
 https://www.youtube.com/watch?v=o6vbe5G7xNo
 https://www.youtube.com/watch?v=-dJPoLm_gtE
-https://www.youtube.com/watch?v=KF3MPzsnMdU&list=PLkz_y24mlSJZvJOj1UXiJPVRQrNFdNEXX
+
 
 
 3. fastapi + meachine
@@ -17,6 +17,11 @@ https://www.youtube.com/watch?v=2tagcO5v9aw&t=55s
 https://www.youtube.com/watch?v=WJKsPchji0Q&list=PLKnIA16_RmvZ41tjbKB2ZnwchfniNsMuQ
 https://www.youtube.com/watch?v=cQcg9sG6-rM&list=PLdKd-j64gDcBcn_y97FBt6pw-NzmY--20
 https://www.youtube.com/watch?v=Y0SbCp4fUvA
+
+7. MLops course
+https://www.youtube.com/watch?v=KF3MPzsnMdU&list=PLkz_y24mlSJZvJOj1UXiJPVRQrNFdNEXX
+
+https://www.youtube.com/watch?v=5pniK1RV_6o&list=PLupK5DK91flV45dkPXyGViMLtHadRr6sp
 
 6. microservice, langgraph, rabbitmq, Ai agent
 https://www.youtube.com/watch?v=mnUwMDfjKGs
